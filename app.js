@@ -26,19 +26,41 @@
 // app.listen(3000);
 
 
-//bcrypt use karte hai password to encrypt
+// //bcrypt use karte hai password to encrypt
+// const express = require('express');
+// const app = express();
+// const bcrypt=require('bcrypt');
+
+// app.get('/', function (req, res) {
+//     bcrypt.genSalt(10, function(err, salt) {
+//         // console.log(salt) //random string
+//         bcrypt.hash("polololololo", salt, function(err, hash) {
+//             // Store hash in your password DB.
+//             console.log(hash);
+//         });
+//     });
+
+//     res.send("I'm home page")
+    
+// });
+
+// app.listen(3000);
+
+
+
+
+//decrypt
 const express = require('express');
 const app = express();
 const bcrypt=require('bcrypt');
 
 app.get('/', function (req, res) {
-    bcrypt.genSalt(10, function(err, salt) {
-        // console.log(salt) //random string
-        bcrypt.hash("polololololo", salt, function(err, hash) {
-            // Store hash in your password DB.
-            console.log(hash);
-        });
+    bcrypt.compare("polololololo", "$2b$10$Q5fdDR2Sqg2NVS4WQMP9vuel/2fYb1ef.2RSRAsEC4TgPfCjJuO2.", function(err, result) {
+        // result == true
+        console.log(result);
     });
+    
+    res.send("I'm home page")
     
 });
 
